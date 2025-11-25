@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dr. Yoan Martínez López</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Academic curriculum page of Dr. Yoan Martínez López"
+  />
+  <style>
+    :root {
+      --bg: #f5f5f7;
+      --bg-alt: #ffffff;
+      --accent: #004f9f;
+      --accent-soft: #e1ecff;
+      --text-main: #222222;
+      --text-muted: #666666;
+      --border-soft: #e0e0e0;
+      --shadow-soft: 0 10px 30px rgba(0, 0, 0, 0.06);
+      --radius-lg: 14px;
+      --radius-pill: 999px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        sans-serif;
+      background: radial-gradient(circle at top, #fdfdff 0, #f1f3f8 40%, #eceff4 100%);
+      color: var(--text-main);
+      line-height: 1.6;
+      padding: 0;
+      margin: 0;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 1.5rem 1.5rem 3rem;
+    }
+
+    header {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    @media (min-width: 720px) {
+      header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+      }
+    }
+
+    .title-block {
+      flex: 2;
+    }
+
+    h1 {
+      font-size: clamp(2.2rem, 2.6vw + 1.6rem, 2.8rem);
+      font-weight: 700;
+      letter-spacing: 0.03em;
+      margin-bottom: 0.4rem;
+    }
+
+    .subtitle {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 0.4rem;
+    }
+
+    .affiliation {
+      font-size: 1rem;
+      color: var(--text-main);
+      font-weight: 500;
+    }
+
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.6rem;
+    }
+
+    .badge {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: var(--radius-pill);
+      background: var(--accent-soft);
+      color: var(--accent);
+      border: 1px solid rgba(0, 79, 159, 0.12);
+      white-space: nowrap;
+    }
+
+    .contact-card {
+      flex: 1.3;
+      background: var(--bg-alt);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.2rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-soft);
+      font-size: 0.9rem;
+    }
+
+    .contact-card-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-row {
+      margin-bottom: 0.35rem;
+    }
+
+    .label {
+      font-weight: 600;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+      background: rgba(245, 245, 247, 0.85);
+      margin: 0 -1.5rem 1.8rem;
+      padding: 0.6rem 1.5rem;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      font-size: 0.85rem;
+    }
+
+    .nav-links a {
+      padding: 0.35rem 0.8rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid transparent;
+      color: var(--text-muted);
+    }
+
+    .nav-links a:hover {
+      border-color: var(--accent-soft);
+      background: #ffffff;
+      text-decoration: none;
+    }
+
+    .section {
+      margin-bottom: 2rem;
+      background: rgba(255, 255, 255, 0.96);
+      border-radius: var(--radius-lg);
+      padding: 1.4rem 1.5rem 1.5rem;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-soft);
+    }
+
+    .section h2 {
+      font-size: 1.25rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .two-columns {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1.1fr);
+      gap: 1.5rem;
+    }
+
+    @media (max-width: 720px) {
+      .two-columns {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    ul {
+      padding-left: 1.1rem;
+    }
+
+    li {
+      margin-bottom: 0.35rem;
+    }
+
+    .item {
+      margin-bottom: 0.75rem;
+    }
+
+    .item-title {
+      font-weight: 600;
+      font-size: 0.98rem;
+    }
+
+    .item-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    .pill-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-top: 0.4rem;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 0.16rem 0.6rem;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-soft);
+      background: #fafafa;
+    }
+
+    .link-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .link-list li {
+      margin-bottom: 0.3rem;
+    }
+
+    footer {
+      margin-top: 2rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="title-block">
+        <h1>Dr. Yoan Martínez López</h1>
+        <div class="subtitle">PhD in Technical Sciences · Computer Scientist</div>
+        <div class="affiliation">
+          Professor, Faculty of Informatics and Exact Sciences<br />
+          University of Camagüey, Cuba
+        </div>
+        <div class="badge-row">
+          <span class="badge">Artificial Intelligence</span>
+          <span class="badge">Soft Computing</span>
+          <span class="badge">Machine Learning</span>
+          <span class="badge">Evolutionary Algorithms</span>
+          <span class="badge">Optimization</span>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="contact-card-title">Contact · Contacto</div>
+        <div class="contact-row">
+          <span class="label">Email:</span><br />
+          <a href="mailto:yoan.martinez@reduc.edu.cu">yoan.martinez@reduc.edu.cu</a><br />
+          <a href="mailto:ymlopez2022@gmail.com">ymlopez2022@gmail.com</a>
+        </div>
+        <div class="contact-row">
+          <span class="label">Location:</span><br />
+          Camagüey, Cuba
+        </div>
+        <div class="contact-row">
+          <span class="label">Profiles:</span><br />
+          <a href="https://scholar.google.com/citations?user=IjmezeoAAAAJ" target="_blank">Google Scholar</a> ·
+          <a href="https://www.researchgate.net/profile/Yoan-Martinez-Lopez" target="_blank">ResearchGate</a> ·
+          <a href="https://publons.com/researcher/3139252/yoan-martinez-lopez/" target="_blank">Publons</a> ·
+          <a href="http://orcid.org/0000-0002-1950-567X" target="_blank">ORCID</a> ·
+          <a href="https://github.com/cybervalient" target="_blank">GitHub</a>
+        </div>
+      </div>
+    </header>
+
+    <nav>
+      <div class="nav-links">
+        <a href="#about">About / Sobre mí</a>
+        <a href="#interests">Research Interests</a>
+        <a href="#education">Education</a>
+        <a href="#experience">Experience</a>
+        <a href="#awards">Awards</a>
+        <a href="#publications">Selected Publications</a>
+        <a href="#skills">Skills</a>
+      </div>
+    </nav>
+
+    <section id="about" class="section">
+      <h2>About Me</h2>
+      <div class="section-subtitle">Short bio · Breve biografía</div>
+      <div class="two-columns">
+        <div>
+          <p>
+            I am a computer scientist and Professor at the University of Camagüey, Cuba,
+            with a PhD in Technical Sciences (2021), an MSc in Computer Science (2013),
+            and a BSc in Computer Science (2010). My work lies at the intersection of
+            artificial intelligence, soft computing, evolutionary computation, and applied
+            optimization, with a strong focus on real-world decision-making problems.
+          </p>
+          <p>
+            Over the last years, I have contributed to research on estimation of
+            distribution algorithms, prototype-based learning, decision-support systems,
+            and data-driven models for complex domains such as smart grids, energy
+            systems, and biomedical applications. I actively collaborate with
+            international teams and participate in scientific competitions and
+            benchmarking initiatives in evolutionary computation and machine learning.
+          </p>
+        </div>
+        <div>
+          <p>
+            Soy profesor de la Universidad de Camagüey, Cuba, y doctor en Ciencias
+            Técnicas (2021), con máster (2013) y licenciatura (2010) en Ciencias de la
+            Computación. Mi trabajo se centra en la inteligencia artificial, el
+            softcomputing, los algoritmos evolutivos y la optimización aplicada a
+            problemas reales de toma de decisiones.
+          </p>
+          <p>
+            En los últimos años he trabajado en algoritmos de estimación de
+            distribuciones, aprendizaje basado en prototipos, sistemas de apoyo a la
+            decisión y modelos basados en datos para redes inteligentes, sistemas
+            energéticos y aplicaciones biomédicas, entre otros. Colaboro de forma activa
+            con grupos de investigación internacionales y participo en competiciones y
+            benchmarks científicos en computación evolutiva y aprendizaje automático.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="interests" class="section">
+      <h2>Research Interests</h2>
+      <div class="section-subtitle">Main lines · Líneas principales</div>
+      <ul>
+        <li>Soft computing and intelligent techniques for data analysis and prediction</li>
+        <li>Estimation of distribution algorithms and evolutionary computation</li>
+        <li>Prototype-based learning and supervised/unsupervised machine learning</li>
+        <li>Decision-support systems and optimization of real-world problems</li>
+        <li>Machine learning, deep learning, and data mining on large-scale data</li>
+        <li>Applications in energy systems, smart grids, and smart cities</li>
+        <li>Applications in chemoinformatics, QSAR/QSPR, and biomedical data</li>
+        <li>Expert systems for teaching and learning (e.g., linear algebra)</li>
+      </ul>
+    </section>
+
+    <section id="education" class="section">
+      <h2>Education</h2>
+      <div class="section-subtitle">Formación académica</div>
+      <div class="item">
+        <div class="item-title">PhD in Technical Sciences</div>
+        <div class="item-meta">University of Camagüey, Cuba · 2021</div>
+      </div>
+      <div class="item">
+        <div class="item-title">MSc in Computer Science</div>
+        <div class="item-meta">University of Camagüey, Cuba · 2013</div>
+      </div>
+      <div class="item">
+        <div class="item-title">BSc in Computer Science</div>
+        <div class="item-meta">University Central “Marta Abreu” de Las Villas, Cuba · 2010</div>
+      </div>
+    </section>
+
+    <section id="experience" class="section">
+      <h2>Professional Experience</h2>
+      <div class="section-subtitle">Experiencia profesional y académica</div>
+
+      <div class="item">
+        <div class="item-title">Professor, Faculty of Informatics and Exact Sciences</div>
+        <div class="item-meta">University of Camagüey, Cuba</div>
+        <p>
+          Teaching and research in artificial intelligence, machine learning, evolutionary
+          computation, and applied optimization, including the supervision of undergraduate
+          and graduate students and participation in national and international projects.
+        </p>
+      </div>
+
+      <div class="item">
+        <div class="item-title">Freelance Data & Software Projects</div>
+        <div class="item-meta">Remote collaborations</div>
+        <p>
+          Participation in industrial and applied projects as data analyst, Scrum Master,
+          QA, and software developer (PHP, WordPress, ECWID, and other web technologies).
+        </p>
+      </div>
+    </section>
+
+    <section id="awards" class="section">
+      <h2>Awards & Distinctions</h2>
+      <div class="section-subtitle">Selected highlights · Selección de reconocimientos</div>
+      <ul>
+        <li>
+          <strong>Best Article Award (2024)</strong> for a 2023 publication in collaboration
+          with the University of Camagüey.
+        </li>
+        <li>
+          <strong>1st and 3rd place</strong> in the WCCI/GECCO 2023 competition on
+          evolutionary algorithms applied to smart grids.
+        </li>
+        <li>
+          <strong>3rd place</strong> in the RestMex 2023 competition and
+          <strong>3rd place</strong> in the 2022–3 solar generation forecasting competition.
+        </li>
+        <li>
+          <strong>2nd place</strong> in the WCCI/GECCO 2020 competition on evolutionary
+          computation in the energy domain (2022 recognition).
+        </li>
+        <li>
+          <strong>CITMA Young Researchers Award 2021</strong> in Computing and Informatics
+          (awarded 2022).
+        </li>
+        <li>
+          <strong>Special Distinction of the Minister of Education 2021</strong> and
+          <strong>Rector’s Award 2021</strong> for major contributions to scientific and
+          technological innovation.
+        </li>
+        <li>
+          <strong>First prize</strong> in the “My thesis in 3 minutes” competition (2021).
+        </li>
+        <li>
+          Multiple awards and distinctions in national and international competitions and
+          recognition by the Cuban Academy of Sciences.
+        </li>
+      </ul>
+    </section>
+
+    <section id="publications" class="section">
+      <h2>Selected Publications</h2>
+      <div class="section-subtitle">Recent and representative works</div>
+
+      <div class="item">
+        <div class="item-title">
+          Cellular estimation of distribution algorithm designed to solve the energy resource
+          management problem under uncertainty
+        </div>
+        <div class="item-meta">
+          <em>Engineering Applications of Artificial Intelligence</em>, 2021
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          WCCI/GECCO 2020 Competition on Evolutionary Computation in the Energy Domain:
+          An overview from the winner perspective
+        </div>
+        <div class="item-meta">
+          <em>Applied Soft Computing</em>, 2022
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          When global and local molecular descriptors are more than the sum of its parts:
+          Simple, But Not Simpler?
+        </div>
+        <div class="item-meta">
+          <em>Molecular Diversity</em>, 2020
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          Prediction of aquatic toxicity of benzene derivatives using molecular descriptor
+          from atomic weighted vectors
+        </div>
+        <div class="item-meta">
+          <em>Environmental Toxicology and Pharmacology</em>, 2017
+        </div>
+      </div>
+
+      <div class="item">
+        <div class="item-title">
+          Discrete Derivatives for Atom-Pairs as a Novel Graph-Theoretical Invariant for
+          Generating New Molecular Descriptors
+        </div>
+        <div class="item-meta">
+          <em>Molecular Informatics</em>, 2014
+        </div>
+      </div>
+
+      <p style="margin-top:0.8rem;font-size:0.9rem;color:var(--text-muted);">
+        A more complete and up-to-date list of publications is available on
+        <a href="https://scholar.google.com/citations?user=IjmezeoAAAAJ" target="_blank">Google Scholar</a>
+        and
+        <a href="https://www.researchgate.net/profile/Yoan-Martinez-Lopez" target="_blank">ResearchGate</a>.
+      </p>
+    </section>
+
+    <section id="skills" class="section">
+      <h2>Technical Skills</h2>
+      <div class="section-subtitle">Tecnologías y herramientas</div>
+
+      <div class="two-columns">
+        <div>
+          <div class="item-title" style="margin-bottom:0.3rem;">Programming Languages</div>
+          <div class="pill-list">
+            <span class="pill">Python</span>
+            <span class="pill">Java</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">C</span>
+            <span class="pill">C++</span>
+            <span class="pill">C#</span>
+            <span class="pill">Node.js</span>
+            <span class="pill">R</span>
+            <span class="pill">Matlab</span>
+            <span class="pill">Pascal</span>
+          </div>
+
+          <div class="item-title" style="margin:1rem 0 0.3rem;">Frameworks & Platforms</div>
+          <div class="pill-list">
+            <span class="pill">Symfony</span>
+            <span class="pill">WordPress</span>
+            <span class="pill">ECWID</span>
+            <span class="pill">Joomla</span>
+            <span class="pill">PrestaShop</span>
+          </div>
+        </div>
+        <div>
+          <div class="item-title" style="margin-bottom:0.3rem;">Tools & Contributions</div>
+          <ul>
+            <li>Development of computational tools such as MD-LOVIs, DIVATI, and GT-STAF.</li>
+            <li>Experience in data analysis, modelling, and evaluation in energy, environmental, and biomedical domains.</li>
+            <li>Participation in multidisciplinary projects and international collaborations.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Links & Resources</h2>
+      <div class="section-subtitle">Enlaces de interés</div>
+      <ul class="link-list">
+        <li>
+          <a href="https://scholar.google.com/citations?user=IjmezeoAAAAJ" target="_blank">
+            Google Scholar profile
+          </a>
+        </li>
+        <li>
+          <a href="https://www.researchgate.net/profile/Yoan-Martinez-Lopez" target="_blank">
+            ResearchGate profile
+          </a>
+        </li>
+        <li>
+          <a href="https://publons.com/researcher/3139252/yoan-martinez-lopez/" target="_blank">
+            Publons / Web of Science reviewer profile
+          </a>
+        </li>
+        <li>
+          <a href="http://orcid.org/0000-0002-1950-567X" target="_blank">ORCID: 0000-0002-1950-567X</a>
+        </li>
+        <li>
+          <a href="https://github.com/cybervalient" target="_blank">
+            GitHub – cybervalient
+          </a>
+        </li>
+      </ul>
+    </section>
+
+    <footer>
+      Last updated: <!-- You can manually update this date -->
+      2025
+    </footer>
+  </div>
+</body>
+</html>
